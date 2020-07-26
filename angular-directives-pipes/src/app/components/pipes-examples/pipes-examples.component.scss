@@ -1,0 +1,16 @@
+h2 {
+  text-align: center;
+}
+
+mat-card {
+  margin: 20px;
+  min-width: 500px;
+  flex-grow: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}

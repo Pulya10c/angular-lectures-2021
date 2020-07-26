@@ -1,0 +1,11 @@
+<h4 #el1 title="'Hello' + userName">{{ el1.title }}</h4>
+<h4 #el2 title="{{ 'Hello ' + userName }}">{{ el2.title }}</h4>
+<h4 #el3 [title]="'Hello ' + userName">{{ el3.title }}</h4>
+
+<mat-form-field class="example-full-width">
+  <input matInput #userInput placeholder="Username" [(ngModel)]="userName" (keydown)="onKeyUp($event)">
+</mat-form-field>
+
+<div class="random-block" #randomColoredBlock (click)="generateColor()"></div>
+
+<app-inner></app-inner>

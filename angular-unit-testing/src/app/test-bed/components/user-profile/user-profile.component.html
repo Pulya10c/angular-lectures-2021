@@ -1,0 +1,15 @@
+<section>
+  <header>
+    <h1>User profile</h1>
+    <nav>
+      <app-user-menu></app-user-menu>
+    </nav>
+  </header>
+
+  <app-user-picture></app-user-picture>
+  <app-user-info></app-user-info>
+
+  <app-publication-card *ngFor="let publication of publications"
+    [publication]="publication">
+  </app-publication-card>
+</section>

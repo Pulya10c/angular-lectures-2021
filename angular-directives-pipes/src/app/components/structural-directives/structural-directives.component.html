@@ -1,0 +1,73 @@
+<h2>Structural directives</h2>
+
+<main>
+  <mat-card>
+    <mat-card-title>*ngIf</mat-card-title>
+    <mat-card-content>
+      <p *ngIf="false">
+        I'm never shown
+      </p>
+      <p *ngIf="true">
+        Show me!
+      </p>
+      <p *ngIf="{  }">
+        Show me as well!
+      </p>
+      <p *ngIf="false; else elseTemplate">
+        I'm hidden
+      </p>
+      <ng-template #elseTemplate>
+        <p>Else template is shown</p>
+      </ng-template>
+      <ng-container *ngTemplateOutlet="elseTemplate"></ng-container>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>*ngSwitch</mat-card-title>
+    <mat-card-content>
+      <div [ngSwitch]="currentEmotion">
+        <p *ngSwitchCase="emotion.Confused">I'm confused</p>
+        <p *ngSwitchCase="emotion.Sad">I'm sad</p>
+        <p *ngSwitchCase="emotion.Happy">I'm happy!</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>*ngFor</mat-card-title>
+    <mat-card-content>
+      <mat-card *ngFor="let post of posts; let i = index; let odd = odd" [class.grey]="odd">
+        <mat-card-title>({{ i }}) {{ post.title }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ post.text }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="accent" (click)="post.isLiked ? unlikePost(post) : likePost(post)">
+            <mat-icon>{{ post.isLiked ? 'favorite' : 'favorite_outline' }}</mat-icon>
+            {{ post.likes }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Custom directive. *appUnless</mat-card-title>
+    <mat-card-content>
+      <div [ngSwitch]="currentEmotion">
+        <p *appUnless="true">
+          I'm never shown
+        </p>
+        <p *appUnless="false">
+          Show me!
+        </p>
+        <p *appUnless="null">
+          Show me as well!
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</main>

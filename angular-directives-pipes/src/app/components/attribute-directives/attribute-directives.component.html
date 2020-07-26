@@ -1,0 +1,51 @@
+<h2>Attribute directives</h2>
+
+<mat-card appHighlight>
+  Highlight
+</mat-card>
+
+<mat-card appHighlightOnHover>
+  Highlight on hover
+</mat-card>
+
+<mat-card appHighlightWithCustomColor [color]="color">
+  Enter a color to highlight this card (separate property)
+</mat-card>
+
+<mat-card [appHighlightCustomColorBinding]="color">
+  Enter a color to highlight this card (binding)
+</mat-card>
+
+<mat-form-field>
+  <input matInput [(ngModel)]="color" placeholder="Enter a color">
+</mat-form-field>
+
+<h2>Built-in attribute directives</h2>
+
+<mat-card>
+  <mat-card-title>[ngStyle]</mat-card-title>
+  <mat-card-content>
+    <p style="background-color: orange">Paragraph</p>
+    <p [ngStyle]="{ 'background-color': paragraphColor }">Paragraph</p>
+    <p [style.background-color]="'pink'">Paragraph</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>[ngClass]</mat-card-title>
+  <mat-card-content>
+    <p [ngClass]="{ bold: true, italic: false, red: false }">Paragraph</p>
+    <p [ngClass]="'bold italic red'">Paragraph</p>
+    <p [ngClass]="['bold', 'italic', 'red']">Paragraph</p>
+    <p [class.italic]="true">Paragraph</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>[ngNonBindable]</mat-card-title>
+  <mat-card-content>
+    <p ngNonBindable>
+      This text has no {{ interpolation }}
+    </p>
+  </mat-card-content>
+</mat-card>

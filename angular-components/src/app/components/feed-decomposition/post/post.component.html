@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-title>{{ post.title }}</mat-card-title>
+  <mat-card-content>
+    <p>{{ post.text }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="accent" (click)="post.isLiked ? unlikePost(post) : likePost(post)">
+      <mat-icon>{{ post.isLiked ? 'favorite' : 'favorite_outline' }}</mat-icon>
+      {{ post.likes }}
+    </button>
+  </mat-card-actions>
+</mat-card>

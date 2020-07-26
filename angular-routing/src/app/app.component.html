@@ -1,0 +1,27 @@
+<header>
+  <h2>Routing Example</h2>
+</header>
+
+<mat-toolbar>
+  <a [routerLink]="['home']" routerLinkActive="active">Home</a>
+  <button mat-button (click)="performSimpleRedirect()" routerLinkActive="active">Simple</button>
+
+  <a [routerLink]="['user', '123']" routerLinkActive="active">User</a>
+  <button mat-button (click)="goToUserPage()">User</button>
+
+  <a routerLink="/lazy-loaded">Lazy loaded</a>
+
+  <a [routerLink]="['parent']" routerLinkActive="active">Nested routes</a>
+
+  <!-- <a [routerLink]="['another']" routerLinkActive="active">Another module: Page one</a>
+  <a [routerLink]="['another', 'two']" routerLinkActive="active">Another module: Page two</a> -->
+
+  <a [routerLink]="['another']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Another module: Page one</a>
+  <a [routerLink]="['another', 'two']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Another module: Page two</a>
+
+  <a [routerLink]="['admin']" routerLinkActive="active">Admin</a>
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

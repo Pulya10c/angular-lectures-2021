@@ -1,0 +1,7 @@
+<h1>My feed</h1>
+
+<app-post *ngFor="let post of posts"
+  [post]="post"
+  (like)="likePost($event)"
+  (unlike)="unlikePost($event)">
+</app-post>

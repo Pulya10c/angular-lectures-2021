@@ -1,0 +1,129 @@
+<h2>Pipes</h2>
+
+<main>
+  <mat-card>
+    <mat-card-title>DatePipe</mat-card-title>
+    <mat-card-content>
+      <p>Default:<br>{{ dateString | date }}</p>
+      <p>Short:<br>{{ dateString | date:'short' }}</p>
+      <p>Medium:<br>{{ dateString | date:'medium' }}</p>
+      <p>Long:<br>{{ dateString | date:'long' }}</p>
+      <p>Full:<br>{{ dateString | date:'full' }}</p>
+      <p>Short date:<br>{{ dateString | date:'shortDate' }}</p>
+      <p>Medium date:<br>{{ dateString | date:'mediumDate' }}</p>
+      <p>Long date:<br>{{ dateString | date:'longDate' }}</p>
+      <p>Full date:<br>{{ dateString | date:'fullDate' }}</p>
+      <p>Short time:<br>{{ dateString | date:'shortTime' }}</p>
+      <p>Medium time:<br>{{ dateString | date:'mediumTime' }}</p>
+      <p>Long time:<br>{{ dateString | date:'longTime' }}</p>
+      <p>Full time:<br>{{ dateString | date:'fullTime' }}</p>
+
+      <h2>Custom format</h2>
+      <p>d.M.yyyy:<br>{{ dateString | date:'d.M.yyyy' }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>SlicePipe</mat-card-title>
+    <mat-card-content>
+      <p>
+        <span ngNonBindable>{{ 'Angular' | slice:3:6 }}</span><br>
+        {{ 'Angular' | slice:3:6 }}
+      </p>
+      <p>
+        <span ngNonBindable>{{ [1, 2, 3, 4, 5] | slice:1:4 }}</span><br>
+        {{ [1, 2, 3, 4, 5] | slice:1:4 }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>CurrencyPipe</mat-card-title>
+    <mat-card-content>
+      <p>
+        <span ngNonBindable>{{ 5.99 | currency }}</span><br>
+        {{ 5.99 | currency }}
+      </p>
+      <p>
+        <span ngNonBindable>{{ 5.99 | currency:'CAD' }}</span><br>
+        {{ 5.99 | currency:'CAD' }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>DecimalPipe</mat-card-title>
+    <mat-card-content>
+      <p>Digits info: min Integer Digits . min Fraction Digits - max Fraction Digits</p>
+      <p>
+        <span ngNonBindable>{{ 24.718281828459045 | number:'1.1-5' }}</span><br>
+        {{ 24.718281828459045 | number:'1.1-5' }}
+      </p>
+      <p>
+        <span ngNonBindable>{{ 24.718281828459045 | number:'1.1-5' }}</span><br>
+        {{ 24.718281828459045 | number:'3.2-5' }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>PercentPipe</mat-card-title>
+    <mat-card-content>
+      <p>Digits info: min Integer Digits . min Fraction Digits - max Fraction Digits</p>
+      <p>
+        <span ngNonBindable>{{0.259 | percent}}</span><br>
+        {{0.259 | percent}}
+      </p>
+      <p>
+        <span ngNonBindable>{{1.3495 | percent:'4.3-5'}}</span><br>
+        {{1.3495 | percent:'4.3-5'}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Upper/lower/title case</mat-card-title>
+    <mat-card-content>
+      <p>
+        <span ngNonBindable>{{ 'is gonna be uppercase' | uppercase }}</span><br>
+        {{ 'is gonna be uppercase' | uppercase }}
+      </p>
+      <p>
+        <span ngNonBindable>{{ 'IS GONNA BE UPPERCASE' | lowercase }}</span><br>
+        {{ 'IS GONNA BE UPPERCASE' | lowercase }}
+      </p>
+      <p>
+        <span ngNonBindable>{{ 'text to be capitalized' | titlecase }}</span><br>
+        {{ 'text to be capitalized' | titlecase }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Custom pipes</mat-card-title>
+    <mat-card-content>
+      <h3>Please pipe</h3>
+      <p>
+        <span ngNonBindable>{{ 'consider learning Angular' | please }}</span><br>
+        {{ 'consider learning Angular' | please:1:2:3:4:5 }}
+      </p>
+      <h3>Filter tasks by status</h3>
+      <app-tasks-example></app-tasks-example>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Pure vs inpure pipe</mat-card-title>
+    <mat-card-content>
+      <app-pure-vs-impure></app-pure-vs-impure>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Async pipe</mat-card-title>
+    <mat-card-content>
+      <app-async-pipe></app-async-pipe>
+    </mat-card-content>
+  </mat-card>
+
+</main>

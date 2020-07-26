@@ -1,0 +1,14 @@
+{
+  "name": "rxjs-observables",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^6.5.3",
+    "typescript": "^3.6.4"
+  }
+}

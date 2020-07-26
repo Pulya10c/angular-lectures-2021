@@ -1,0 +1,16 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
+}

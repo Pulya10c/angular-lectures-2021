@@ -1,0 +1,58 @@
+<form (submit)="initCourses()">
+  <mat-form-field>
+    <input matInput placeholder="Search" [(ngModel)]="searchCriterion" name="search">
+  </mat-form-field>
+  <button mat-button type="submit">Search</button>
+</form>
+
+<form style="display: flex; flex-direction: column" (submit)="editMode ? editCourse() : createCourse(); false">
+  <mat-form-field>
+    <input matInput placeholder="name" [(ngModel)]="newCourse.name" name="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="description" [(ngModel)]="newCourse.description" name="description">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="length" [(ngModel)]="newCourse.length" name="length">
+  </mat-form-field>
+  <button mat-button type="submit">Submit</button>
+</form>
+<!--  -->
+<ng-container *ngIf="courses && courses.length">
+  <mat-card *ngFor="let course of courses"
+    class="course-item"
+    appCreationDateStatus
+    [creationDateString]="course.date"
+    [ngClass]="{ 'course-item--top-rated': course.isTopRated }">
+    <section class="course-item__content">
+      <header class="card-header">
+        <h2 class="card-header__title">
+          <span>{{course.name | uppercase}}</span>
+          <mat-icon *ngIf="course.isTopRated">star_rate</mat-icon>
+        </h2>
+        <div class="card-header__info">
+          <div class="card-header__info__duration">
+            {{course.length | minutesToTime}}
+          </div>
+          <div class="card-header__info__date">
+            {{course.date | date : 'MM.dd.yyyy'}}
+          </div>
+        </div>
+      </header>
+      <main class="course-item__content__desctiption">
+        {{course.description}}
+      </main>
+    </section>
+    <aside class="course-item__actions">
+      <button class="course-item__actions__edit" mat-button color="primary" (click)="onEdit(course)">
+        <mat-icon>edit</mat-icon>
+        <span translate>Edit</span>
+      </button>
+      <button class="course-item__actions__remove" mat-button color="warn" (click)="onRemove(course)">
+        <mat-icon>remove</mat-icon>
+        <span translate>Delete</span>
+      </button>
+    </aside>
+  </mat-card>
+  <button mat-button (click)="loadMoreCourses()" style="width: 100%" *ngIf="hasMoreCourses">Load more</button>
+</ng-container>

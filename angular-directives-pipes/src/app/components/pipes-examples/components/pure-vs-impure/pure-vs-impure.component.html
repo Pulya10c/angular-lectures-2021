@@ -1,0 +1,39 @@
+<div>
+  <div>
+    <mat-form-field>
+      <input matInput type="text" #box (keyup.enter)="addTask(box.value); box.value=''" placeholder="Add task">
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="isDone">is done</mat-checkbox>
+    <mat-checkbox [(ngModel)]="someEl">some checkbox</mat-checkbox>
+    <p>
+      <button mat-button (click)="changeReference()">Change reference</button>
+    </p>
+  </div>
+
+  <div>
+    <h4>all tasks</h4>
+    <div>
+      <div *ngFor="let task of tasks ">
+        <mat-checkbox [(ngModel)]="task.isDone">{{task.name}}</mat-checkbox>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h4>done tasks(pure pipe)</h4>
+    <div>
+      <div *ngFor="let task of tasks| isDonePure: true">
+        <mat-checkbox [(ngModel)]="task.isDone">{{task.name}}</mat-checkbox>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h4>done tasks(Impure pipe)</h4>
+    <div>
+      <div *ngFor="let task of tasks| isDoneImpure: true">
+        <mat-checkbox [(ngModel)]="task.isDone">{{task.name}}</mat-checkbox>
+      </div>
+    </div>
+  </div>
+</div>

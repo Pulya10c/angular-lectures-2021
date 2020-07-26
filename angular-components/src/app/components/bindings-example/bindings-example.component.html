@@ -1,0 +1,85 @@
+<main>
+  <div class="binding-examples">
+    <section>
+      <h2>Interpolation</h2>
+
+      <h3>Message is shown by using interpoltion</h3>
+      <p>{{ message }}</p>
+
+      <h3>Bind image url with interpolation</h3>
+      <img src="{{ imagePath }}" width="{{ imageWidth }}">
+    </section>
+
+    <section>
+      <h2>Property binding</h2>
+
+      <h3>Message is shown by using property binding</h3>
+      <p [textContent]="message"></p>
+
+      <h3>Bind image url with property binding</h3>
+      <img [src]="imagePath" [width]="imageWidth">
+
+      <p [innerHTML]="innerHtml"></p>
+
+      <h3>Disabled elements</h3>
+      <input type="text" [disabled]="true">
+      <button mat-raised-button [disabled]="true" [ngStyle]="{ 'margin-left': '20px' }">
+        Disabled
+      </button>
+    </section>
+
+    <section>
+      <h2>Two-way binding</h2>
+
+      <h3>Type something and observe the result:</h3>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="username" placeholder="Username">
+      </mat-form-field>
+      <p>Hello {{ username }}!</p>
+      <p *ngIf="username">Hello {{ username }}!</p>
+    </section>
+  </div>
+
+  <div class="events-example">
+    <h2>Event binding</h2>
+
+    <div class="events-example__list">
+      <div class="events-example__list__item">
+        <button mat-raised-button (click)="handleClick($event)">
+          Click
+        </button>
+        <p *ngIf="eventTimers['click']">
+          {{ eventMessages['click'] }}
+        </p>
+      </div>
+      <div class="events-example__list__item">
+        <button mat-raised-button (mouseenter)="handleMouseenter($event)" (mouseleave)="handleMouseleave($event)">
+          Mouse Enter / Mouse Leave
+        </button>
+        <p *ngIf="eventTimers['mouseenter']">
+          {{ eventMessages['mouseenter'] }}
+        </p>
+        <p *ngIf="eventTimers['mouseleave']">
+          {{ eventMessages['mouseleave'] }}
+        </p>
+      </div>
+
+      <div class="events-example__list__item">
+        <div class="keyboard-area" tabindex="0" (keypress)="handleKeyEvent($event)">
+          Keypress
+        </div>
+        <p *ngIf="eventTimers['keypress']">
+          {{ eventMessages['keypress'] }}: {{ lastKeyPressed }}
+        </p>
+      </div>
+
+      <div class="events-example__list__item">
+        <input type="text" (change)="handleChange($event)">
+        <p *ngIf="eventTimers['change']">
+          {{ eventMessages['change'] }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</main>
